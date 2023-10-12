@@ -269,7 +269,7 @@ new_SUBF5 = []
 new_SUBF6 = []
 new_SUBF7 = []
 new_SUBF8 = []
-def displacement():
+def displacement(): 
     global new_SUBF0
     global new_SUBF1
     global new_SUBF2
@@ -293,7 +293,7 @@ def displacement():
     if key1 == "00000101":
         new_SUBF0 = [SUBF0[8], SUBF0[0], SUBF0[7], SUBF0[5], SUBF0[1], SUBF0[6], SUBF0[4], SUBF0[2], SUBF0[3]]
     if key1 == "00000110":
-        new_SUBF0 = [SUBF0[3], SUBF0[4], SUBF0[8], SUBF0[0], SUBF0[1], SUBF0[7], SUBF0[2], SUBF0[6], SUBF0[5]] #---------------------------------
+        new_SUBF0 = [SUBF0[3], SUBF0[4], SUBF0[8], SUBF0[0], SUBF0[1], SUBF0[7], SUBF0[2], SUBF0[6], SUBF0[5]]
     if key1 == "00000111":
         new_SUBF0 = [SUBF0[3], SUBF0[8], SUBF0[0], SUBF0[6], SUBF0[2], SUBF0[1], SUBF0[4], SUBF0[5], SUBF0[7]]
     if key1 == "00001000":
