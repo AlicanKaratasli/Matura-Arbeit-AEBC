@@ -5,3 +5,4 @@ In dieser Matura Arbeit wurde eine iterative Blockverschlüsselung entwickelt.
 - Mehrere Iterationen
 - S-Box
 - Key infusion
+- Bei Elementen mit 7 bits vorne eine 0 anhängen
