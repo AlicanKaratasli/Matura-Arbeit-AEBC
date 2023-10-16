@@ -2,7 +2,7 @@ import random
 import secrets
 #Verlangt die erwünschte Plain Text zu Verschlüsseln
 alphabetisch = input ("Sie können hier ihr Text schreiben, "
-                      "welches Sie gerne verschlüsselt haben möchten:")
+                      "welchen Sie gerne verschlüsselt haben möchten:")
 #Verwandelt alles in Binär und erstellt die Liste e
 def binar (alphabetisch):
     a , b = [], []
@@ -53,7 +53,7 @@ statblckgen()
 if len(e) != 81 and len(e)>0:
     r = True
     for i in range(81 - len(e)):
-        zufzhl = format(random.randint(129, 255),'08b')
+        zufzhl = bin(random.randint(129, 255))
         e.append(zufzhl)
         z = 81
 if len(e) != 729 and len(e)>81:
