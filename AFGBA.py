@@ -1,27 +1,38 @@
 import random
 import secrets
-#Verlangt die erwünschte Plain Text zu Verschlüsseln
-alphabetisch = input ("Sie können hier ihr Text schreiben, "
-                      "welchen Sie gerne verschlüsselt haben möchten:")
-#Verwandelt alles in Binär und erstellt die Liste e
-def binar (alphabetisch):
-    a , b = [], []
+# Verlangt die erwünschte Plain Text zu Verschlüsseln
+alphabetisch = input("Sie können hier ihr Text schreiben, \
+    welchen Sie gerne verschlüsselt haben möchten:")
+# Verwandelt alles in Binär und erstellt die Liste e
+
+
+def binar(alphabetisch):
+    a, b = [], []
     for i in alphabetisch:
         a.append(ord(i))
     for i in a:
         b.append(int(bin(i)[2:]))
     return b
-e = binar (alphabetisch)
-print (e)
-#Überprüft wie viele Elemente es in der Eingabe hat
+
+
+e = binar(alphabetisch)
+
+print(e)
+# Überprüft wie viele Elemente es in der Eingabe hat
 global z
+
+
 def counter():
     global z
     z = 0
     for i in e:
         z = z + 1
+
+
 counter()
-#Füllt bis ganzes Feld voll ist (mit zufälligen variablen)
+# Füllt bis ganzes Feld voll ist (mit zufälligen variablen)
+
+
 def statblckgen():
     global r
     r = False
@@ -49,73 +60,76 @@ def statblckgen():
     rrrrrrrrrrrr = False
     global rrrrrrrrrrrrr
     rrrrrrrrrrrrr = False
+
+
 statblckgen()
-if len(e) != 81 and len(e)>0:
+
+if len(e) != 81 and len(e) > 0:
     r = True
     for i in range(81 - len(e)):
-        zufzhl = bin(random.randint(129, 255))
+        zufzhl = format(random.randint(129, 255), '08b')
         e.append(zufzhl)
         z = 81
-if len(e) != 729 and len(e)>81:
+if len(e) != 729 and len(e) > 81:
     rr = True
     for i in range(729 - len(e)):
         zufzhl = format(random.randint(129, 255), '08b')
         e.append(zufzhl)
         z = 729
-if len(e) != 6561 and len(e)>729:
+if len(e) != 6561 and len(e) > 729:
     rrr = True
     for i in range(6561 - len(e)):
         zufzhl = format(random.randint(129, 255), '08b')
         e.append(zufzhl)
         z = 6561
-if len(e) != 59049 and len(e)>6561:
+if len(e) != 59049 and len(e) > 6561:
     rrrr = True
     for i in range(59049 - len(e)):
         zufzhl = format(random.randint(129, 255), '08b')
         e.append(zufzhl)
         z = 59049
-if len(e) != 531441 and len(e)>59049:
+if len(e) != 531441 and len(e) > 59049:
     rrrrr = True
     for i in range(531441 - len(e)):
         zufzhl = format(random.randint(129, 255), '08b')
         e.append(zufzhl)
         z = 531441
-if len(e) != 4782969 and len(e)>531441:
+if len(e) != 4782969 and len(e) > 531441:
     rrrrrr = True
     for i in range(4782969 - len(e)):
         zufzhl = format(random.randint(129, 255), '08b')
         e.append(zufzhl)
         z = 4782969
-if len(e) != 43046721 and len(e)>4782969:
+if len(e) != 43046721 and len(e) > 4782969:
     rrrrrr = True
     for i in range(43046721 - len(e)):
         zufzhl = format(random.randint(129, 255), '08b')
         e.append(zufzhl)
         z = 43046721
-if len(e) != 387420489 and len(e)>43046721:
+if len(e) != 387420489 and len(e) > 43046721:
     rrrrrrr = True
     for i in range(387420489 - len(e)):
         zufzhl = format(random.randint(129, 255), '08b')
         e.append(zufzhl)
         z = 387420489
-if len(e) != 3486784401 and len(e)>387420489:
+if len(e) != 3486784401 and len(e) > 387420489:
     rrrrrrrr = True
     for i in range(3486784401 - len(e)):
         zufzhl = format(random.randint(129, 255), '08b')
         e.append(zufzhl)
         z = 3486784401
-if len(e) != 31381059609 and len(e)>3486784401:
+if len(e) != 31381059609 and len(e) > 3486784401:
     rrrrrrrrr = True
     for i in range(31381059609 - len(e)):
         zufzhl = format(random.randint(129, 255), '08b')
         e.append(zufzhl)
         z = 31381059609
 print(e)
-#Definiert die Felder und Füllt die Felder mit den entsprechenden Elementen
+# Definiert die Felder und Füllt die Felder mit den entsprechenden Elementen
 s = 0
 ss = 9
 zz = int(z/9)
-if r == True:
+if r is True:
     for i in range(zz):
         exec("SUBF{0} = []".format(i))
     for i in range(zz):
@@ -123,7 +137,7 @@ if r == True:
         s += 9
         ss += 9
 zzz = int(zz/9)
-if rr == True:
+if rr is True:
     for i in range(zzz):
         exec("F{0} = []".format(i))
     for i in range(zzz):
@@ -131,7 +145,7 @@ if rr == True:
         s += 9
         ss += 9
 zzzz = int(zzz/9)
-if rrr == True:
+if rrr is True:
     for i in range(zzzz):
         exec("UPF{0} = []".format(i))
     for i in range(zzzz):
@@ -139,7 +153,7 @@ if rrr == True:
         s += 9
         ss += 9
 zzzzz = int(zzzz/9)
-if rrrr == True:
+if rrrr is True:
     for i in range(zzzzz):
         exec("SUPERF{0} = []".format(i))
     for i in range(zzzz):
@@ -147,7 +161,7 @@ if rrrr == True:
         s += 9
         ss += 9
 zzzzzz = int(zzzzz/9)
-if rrrrr == True:
+if rrrrr is True:
     for i in range(zzzzzz):
         exec("DEP{0} = []".format(i))
     for i in range(zzzzzz):
@@ -155,7 +169,7 @@ if rrrrr == True:
         s += 9
         ss += 9
 zzzzzzz = int(zzzzzz/9)
-if rrrrrr == True:
+if rrrrrr is True:
     for i in range(zzzzzzz):
         exec("DIM{0} = []".format(i))
     for i in range(zzzzzzz):
@@ -163,7 +177,7 @@ if rrrrrr == True:
         s += 9
         ss += 9
 zzzzzzzz = int(zzzzzz/9)
-if rrrrrrr == True:
+if rrrrrrr is True:
     for i in range(zzzzzzzz):
         exec("DIM{0} = []".format(i))
     for i in range(zzzzzzzz):
@@ -171,7 +185,7 @@ if rrrrrrr == True:
         s += 9
         ss += 9
 zzzzzzzzz = int(zzzzzzzz/9)
-if rrrrrrrr == True:
+if rrrrrrrr is True:
     for i in range(zzzzzzzzz):
         exec("UPDIM{0} = []".format(i))
     for i in range(zzzzzzzzz):
@@ -179,7 +193,7 @@ if rrrrrrrr == True:
         s += 9
         ss += 9
 zzzzzzzzzz = int(zzzzzzzzz/9)
-if rrrrrrrrr == True:
+if rrrrrrrrr is True:
     for i in range(zzzzzzzzzz):
         exec("REALM{0} = []".format(i))
     for i in range(zzzzzzzzzz):
@@ -187,7 +201,7 @@ if rrrrrrrrr == True:
         s += 9
         ss += 9
 zzzzzzzzzzz = int(zzzzzzzzzz/9)
-if rrrrrrrrrr == True:
+if rrrrrrrrrr is True:
     for i in range(zzzzzzzzzzz):
         exec("STRCH{0} = []".format(i))
     for i in range(zzzzzzzzzzz):
@@ -195,7 +209,7 @@ if rrrrrrrrrr == True:
         s += 9
         ss += 9
 zzzzzzzzzzzz = int(zzzzzzzzzzz/9)
-if rrrrrrrrrrr == True:
+if rrrrrrrrrrr is True:
     for i in range(zzzzzzzzzzzz):
         exec("EXT{0} = []".format(i))
     for i in range(zzzzzzzzzzzz):
@@ -203,7 +217,7 @@ if rrrrrrrrrrr == True:
         s += 9
         ss += 9
 zzzzzzzzzzzzz = int(zzzzzzzzzzzz/9)
-if rrrrrrrrrrrr == True:
+if rrrrrrrrrrrr is True:
     for i in range(zzzzzzzzzzzzz):
         exec("EXP{0} = []".format(i))
     for i in range(zzzzzzzzzzzzz):
@@ -211,31 +225,44 @@ if rrrrrrrrrrrr == True:
         s += 9
         ss += 9
 zzzzzzzzzzzzzz = int(zzzzzzzzzzzzz/9)
-if rrrrrrrrrrrrr == True:
+if rrrrrrrrrrrrr is True:
     for i in range(zzzzzzzzzzzzzz):
         exec("ADT{0} = []".format(i))
     for i in range(zzzzzzzzzzzzzz):
         exec("ADT{0} = EXP{0}[{1}:{2}]".format(zzzzzzzzzzzzzz, s, ss))
         s += 9
         ss += 9
+
+
 print(SUBF1)
-#SUBSTITUTION-BOX
-#TRANSPOSITION SHIFTS
-#Key generation
+
+# SUBSTITUTION-BOX
+# TRANSPOSITION SHIFTS
+# Key generation
+
+
 def schlüsselgenerator():
     schlüssel_länge_bytes = 16
     key = secrets.token_bytes(schlüssel_länge_bytes)
     return key
+
+
 def bytes_zu_binary(byte_str):
     return "".join(f"{byte:08b}" for byte in byte_str)
+
+
 def keykleinermachen(key_str):
     smaller_keys = [key_str[i:i+8] for i in range(0, len(key_str), 8)]
     return smaller_keys
+
+
 schlüssel = schlüsselgenerator()
 binärer_schlüssel = bytes_zu_binary(schlüssel)
 smaller_keys = keykleinermachen(binärer_schlüssel)
+
 for i, key in enumerate(smaller_keys, 1):
     globals()[f"key{i}"] = key
+
 print(binärer_schlüssel)
 print(key1)
 print(key2)
@@ -9951,8 +9978,13 @@ def redisplacement():
         decoded_SUBF8 = [new_SUBF8[8], new_SUBF8[7], new_SUBF8[2], new_SUBF8[0], new_SUBF8[4], new_SUBF8[3], new_SUBF8[1], new_SUBF8[5], new_SUBF8[6]]
     if key9 == "11111111":
         decoded_SUBF8 = [new_SUBF8[6], new_SUBF8[7], new_SUBF8[0], new_SUBF8[8], new_SUBF8[2], new_SUBF8[4], new_SUBF8[5], new_SUBF8[3], new_SUBF8[1]]
+
+
 redisplacement()
+
 print("Decoded displaced SUBF0:   ", decoded_SUBF0)
+
+
 def checker_decoder_function():
     global decoded_SUBF0
     global SUBF0
@@ -9960,9 +9992,11 @@ def checker_decoder_function():
         print("Decoding is successful")
     else:
         print("Failed to decode")
+
+
 checker_decoder_function()
-#KEY INFUSION
-#Transposition shifts
+# KEY INFUSION
+# Transposition shifts
 global new_F0
 global new_F1
 global new_F2
@@ -9981,6 +10015,8 @@ new_F5 = []
 new_F6 = []
 new_F7 = []
 new_F8 = []
+
+
 def transpositionverschiebung():
     global new_F0
     global new_F1
@@ -16397,7 +16433,7 @@ def retranspositionsverschiebung():
 retranspositionsverschiebung()
 #Key infusion
 def key_infusionF0(new_F0, key1):
-    new_new_F0 = [element ^ key1 for element in new_F0]
+    new_new_F0 = [int(element) ^ int(key1) for element in new_F0]
     return new_new_F0
 def key_infusionF1(new_F1, key2):
     new_new_F1 = [element ^ key2 for element in new_F1]
