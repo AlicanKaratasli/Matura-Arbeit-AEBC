@@ -18,4 +18,10 @@ if field_length < 10:
 field_length = 9 ** math.ceil(math.log(field_length, 9))
 
 print(field_length)
+field_content = binary_clear_text
 
+for i in range(len(binary_clear_text), field_length):
+    field_content.append(format(random.randint(129, 255), '08b'))
+
+# Testfall
+print(field_content)
