@@ -17,7 +17,9 @@ if field_length < 10:
 
 field_length = 9 ** math.ceil(math.log(field_length, 9))
 
+# Testfall
 print(field_length)
+
 field_content = binary_clear_text
 
 for i in range(len(binary_clear_text), field_length):
@@ -25,3 +27,5 @@ for i in range(len(binary_clear_text), field_length):
 
 # Testfall
 print(field_content)
+
+
