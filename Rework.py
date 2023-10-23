@@ -1,6 +1,7 @@
 import random
 import secrets
 import math
+import Functions as func
 
 input_text = "Hallo" # input("Geben Sie hier den Text ein um diesen zu verschlüsseln: ")
 
@@ -28,10 +29,6 @@ for i in range(len(binary_clear_text), field_length):
 # Testfall
 print(field_content)
 
-field = {}
-for i in range(9):
-    field[f"SUBF{i}"] = []
-
 # Testfall
-print(field)
+print(func.superfield())
 
