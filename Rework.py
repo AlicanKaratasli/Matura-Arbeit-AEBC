@@ -2,7 +2,7 @@ import random
 import secrets
 import math
 
-input_text = input("Geben Sie hier den Text ein um diesen zu verschlüsseln: ")
+input_text = "Hallo" # input("Geben Sie hier den Text ein um diesen zu verschlüsseln: ")
 
 binary_clear_text = []
 for c in input_text:
@@ -28,4 +28,10 @@ for i in range(len(binary_clear_text), field_length):
 # Testfall
 print(field_content)
 
+field = {}
+for i in range(9):
+    field[f"SUBF{i}"] = []
+
+# Testfall
+print(field)
 
