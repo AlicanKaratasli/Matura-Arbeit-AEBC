@@ -13,12 +13,15 @@ for c in input_text:
 print(binary_clear_text)
 
 field_length = len(binary_clear_text)
+
 if field_length < 10:
     field_length = 10
 
-field_length = 9 ** math.ceil(math.log(field_length, 9))
+field_size = math.ceil(math.log(field_length, 9))
+field_length = 9 ** field_size
 
 # Testfall
+print(field_size)
 print(field_length)
 
 field_content = binary_clear_text
@@ -29,6 +32,4 @@ for i in range(len(binary_clear_text), field_length):
 # Testfall
 print(field_content)
 
-# Testfall
-print(func.superfield())
 
