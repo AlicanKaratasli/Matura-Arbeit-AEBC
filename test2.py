@@ -1,23 +1,8 @@
-import random
-import secrets
+def group_into_nine(lst):
+    grouped = [lst[i:i+9] for i in range(0, len(lst), 9)]
+    return grouped
 
-def schlüsselgenerator():
-    schlüssel_länge_bytes = 16
-    key = secrets.token_bytes(schlüssel_länge_bytes)
-    return key
-
-
-def bytes_zu_binary(byte_str):
-    return "".join(f"{byte:08b}" for byte in byte_str)
-
-
-def keykleinermachen(key_str):
-    smaller_keys = [key_str[i:i+8] for i in range(0, len(key_str), 8)]
-    return smaller_keys
-
-
-schlüssel = schlüsselgenerator()
-binärer_schlüssel = bytes_zu_binary(schlüssel)
-smaller_keys = keykleinermachen(binärer_schlüssel)
-
-print(schlüssel, binärer_schlüssel, smaller_keys)
+# Example usage:
+original_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+result = group_into_nine(original_list)
+print(result)
