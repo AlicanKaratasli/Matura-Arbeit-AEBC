@@ -12,16 +12,17 @@ for c in input_text:
 # Testfall
 print(binary_clear_text)
 
-field_length = len(binary_clear_text)
+field_length = 18000
+oversized = False
 
-if field_length < 10:
-    field_length = 82
-
-field_size = math.ceil(math.log(field_length, 9))
-field_length = 9 ** field_size
-
+if field_length < 729: field_length = 729
+else : 
+    oversized = True
+    oversize_count = (field_length // 729) + 1
+    field_length = oversize_count * 729
+        
+        
 # Testfall
-print(field_size)
 print(field_length)
 
 field_content = binary_clear_text
@@ -29,9 +30,16 @@ field_content = binary_clear_text
 for i in range(len(binary_clear_text), field_length):
     field_content.append(format(random.randint(129, 255), '08b'))
 
-packed_content = func.pack_bytes(field_content, field_size)
+if not oversized:
+    packed_content = func.pack_bytes(field_content)
+    field = func.upper_field(packed_content)
 
-field = func.upper_field("UPPER_FIELD", packed_content)
+
 
 # Testfall
-print(field)
+print(field_content)
+print(len(field_content))
+
+
+# Testfall
+#print(field)
