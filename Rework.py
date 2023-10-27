@@ -2,6 +2,7 @@ import random
 import secrets
 import math
 import Functions as func
+import Values as val
 
 input_text = "Hallo" # input("Geben Sie hier den Text ein um diesen zu verschlüsseln: ")
 
@@ -32,3 +33,4 @@ else:
     for i in range(oversize_count):
         field_list[f"COMPLETE_FIELD{i}"] = func.upper_field(packed_content[i])
 
+print(val.transposition)
