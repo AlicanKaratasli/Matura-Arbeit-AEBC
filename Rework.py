@@ -9,10 +9,7 @@ binary_clear_text = []
 for c in input_text:
     binary_clear_text.append(bin(ord(c))[2:])
 
-# Testfall
-print(binary_clear_text)
-
-field_length = 18000
+field_length = 1300 #len(binary_clear_text)
 oversized = False
 
 if field_length < 729: field_length = 729
@@ -20,10 +17,6 @@ else :
     oversized = True
     oversize_count = (field_length // 729) + 1
     field_length = oversize_count * 729
-        
-        
-# Testfall
-print(field_length)
 
 field_content = binary_clear_text
 
@@ -32,14 +25,10 @@ for i in range(len(binary_clear_text), field_length):
 
 if not oversized:
     packed_content = func.pack_bytes(field_content)
-    field = func.upper_field(packed_content)
+    field_list = func.upper_field(packed_content)
+else:
+    packed_content = [func.pack_bytes(field_content[i:i+729]) for i in range(0, field_length, 729)]
+    field_list = {}
+    for i in range(oversize_count):
+        field_list[f"COMPLETE_FIELD{i}"] = func.upper_field(packed_content[i])
 
-
-
-# Testfall
-print(field_content)
-print(len(field_content))
-
-
-# Testfall
-#print(field)
