@@ -32,5 +32,3 @@ else:
     field_list = {}
     for i in range(oversize_count):
         field_list[f"COMPLETE_FIELD{i}"] = func.upper_field(packed_content[i])
-
-print(val.transposition)

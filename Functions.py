@@ -27,3 +27,11 @@ def reorder_field(field, positions):
     for i in range(len(positions)):
         new_field[i] = field[positions[i]]
     return new_field
+
+def get_content(upper_field):
+    content = []
+    for field in upper_field:
+        for lower_field in upper_field[field]:
+            for i in range(9):
+                content.append(upper_field[field][lower_field][f"SUBF{i}"])
+    return content
