@@ -28,7 +28,7 @@ while True:
         for i in range(len(binary_clear_text), field_length):
             field_content.append(format(random.randint(129, 255), '08b'))
 
-        #Key Generation Test
+        #Key Generation
         Key = secrets.randbits(8)
         print("\nIhr Schlüssel ist: ", Key)
 
@@ -94,6 +94,12 @@ while True:
         except:
             print("Schlüssel muss eine Zahl zwischen 0 und 255 sein.")
             continue
+        text_length = input("Bitte geben sie die länge des original textes an: ")
+        try:
+            text_length = int(text_length)
+        except:
+            print("Eingabe konnte nicht erkannt werden")
+            continue
         field_content = []
         while True:
             read_file = input("\nMöchten sie den verschlüsselten Text von der Datei \"encrypted.txt\" auslesen? [Y]/[N]\n")
@@ -110,7 +116,6 @@ while True:
             else:
                 print("Eingabe nicht erkannt")
                 continue
-        print(field_content)
 
         field_length = len(field_content)
         oversized = False
@@ -131,10 +136,9 @@ while True:
             for i in range(oversize_count):
                 field_list[f"COMPLETE_FIELD{i}"] = func.field(packed_content[i])
 
-        ###
         for _ in range(9):
             for field in field_list:
-                #Key Infusion should work by itself
+                #Key Infusion
                 infusion_field = np.array(func.get_content(field_list[field]))
                 infusion_field = infusion_field.ravel().tolist()
 
@@ -155,7 +159,7 @@ while True:
                     for j in range(9):
                         field_list[field][f"FIELD{i}"][f"SUBF{j}"] = func.re_reorder_field(field_list[field][f"FIELD{i}"][f"SUBF{j}"], val.displacement_list[Key])
 
-                #S-Box should work
+                #S-Box
                 flat_list = np.array(func.get_content(field_list[field]))
                 flat_list = flat_list.ravel().tolist()
                 substituted_list = func.reverse_substitute(flat_list)
@@ -163,8 +167,10 @@ while True:
 
         output = np.array(func.get_content(field_list[field]))
         output = output.ravel().tolist()
-        print(output)
-        ###
+        print("Rohes Feld: ", output)
+        clear_text = ''.join([chr(int(binary, 2)) for binary in output])
+        clear_text = clear_text[:text_length]
+        print("Originaler Text: ", clear_text)
 
         break
     encrypt = input()
